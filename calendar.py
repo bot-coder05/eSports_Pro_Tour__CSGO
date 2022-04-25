@@ -1,39 +1,71 @@
-from tournaments import tournaments
+from tournaments import tournaments, Tournament
 from colored import fg, attr
 import random
 
 
+class Month:
+    def __int__(self):
+        pass
+
+
 class Calendar:
     def __init__(self):
-        self.current_month = 'JANUARY'
-        self.current_week = 1
+        self.month_list = [
+            'JANUARY',
+            'FEBRUARY',
+            'MARCH',
+            'APRIL',
+            'MAY',
+            'JUNE',
+            'JULY',
+            'AUGUST',
+            'SEPTEMBER',
+            'OCTOBER',
+            'NOVEMBER',
+            'DECEMBER'
+        ]
+        self.current_month = 9
+        self.current_week = 3
+        self.current_year = 0
+        self.month_schedule = self.make_month_schedule()
+        self.display = """"""
 
     @staticmethod
     def decorate_event_name(name, color):
         return f"{fg(color)}{attr('bold')}{name}{attr('reset')}"
 
     def decorate_month(self):
-        return attr('bold') + " ".join(self.current_month) + attr('reset')
+        return attr('bold') + " ".join(self.month_list[self.current_month]) + attr('reset')
 
     @staticmethod
-    def make_events():
-        selected = random.sample(tournaments, random.randint(2, 4))
-        return selected
+    def make_weekly_events():
+        events = random.sample(tournaments, random.randint(2, 4))
+        return events
 
-    def fill_week(self):
+    def make_week_schedule(self):
         week = [0, 0, 0, 0, 0, 0, 0]
-        events = self.make_events()
+        events = self.make_weekly_events()
         rand = random.sample(range(0, 6), len(events))
         for index, event in enumerate(events):
             week[rand[index]] = self.decorate_event_name(event.name, event.color)
 
         return week
 
-    def make_calendar(self):
-        month = [self.fill_week(), self.fill_week(), self.fill_week(), self.fill_week()]
-        calendar = f"""                         {self.decorate_month()}\n\n"""
+    def make_month_schedule(self):
 
-        for index, week in enumerate(month):
+        month = [self.make_week_schedule(), self.make_week_schedule(),
+                 self.make_week_schedule(), self.make_week_schedule()]
+
+        if self.current_month == 10:
+            major = Tournament('MJR', 'red', 'SSS')
+            month[0][1] = self.decorate_event_name(major.name, major.color)
+
+        return month
+
+    def make_calendar(self):
+        calendar = f"""{self.decorate_month()} - {attr('bold')}YEAR {self.current_year}{attr('reset')}\n\n"""
+
+        for index, week in enumerate(self.month_schedule):
             if index == self.current_week:
                 decor = 'bold'
             else:
@@ -56,6 +88,15 @@ class Calendar:
         else:
             self.current_week = 0
 
+            if self.current_month == 11:
+                self.current_month = 0
+                self.current_year += 1
+            else:
+                self.current_month += 1
+
+            self.month_schedule = self.make_month_schedule()
+
 
 if __name__ == '__main__':
     x = Calendar()
+    print(x.make_calendar())
