@@ -13,9 +13,6 @@ tournaments = [
 
 ]
 
-if __name__ == '__main__':
-    pass
-
 #     Tournament('EPL', 'yellow', 'S'),
 #     Tournament('BLT', 'blue', 'S'),
 #     Tournament('IEM', 'cyan', 'S'),

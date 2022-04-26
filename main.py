@@ -1,14 +1,25 @@
 import os
-from calendar import Calendar
+from schedule import Schedule
 
 if __name__ == '__main__':
-    calendar = Calendar()
-    display = calendar.make_calendar()
+    cal = Schedule()
+    display = cal.make_calendar()
+
     while True:
+
         print(display)
         command = input("Input: ")
-        if command == ".week":
-            calendar.next_week()
-            display = calendar.make_calendar()
+
+        if command == '.calendar':
+            display = cal.make_calendar()
+        elif command == ".week":
+            cal.next_week()
+            display = cal.make_calendar()
+        elif command == ".help":
+            display = """
+                .calendar: changes display to thr calendar
+                          .week: proceeds to the next week
+
+            """
 
         os.system('cls')
