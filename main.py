@@ -7,12 +7,8 @@ if __name__ == '__main__':
     while True:
         print(display)
         command = input("Input: ")
-
         if command == ".week":
             calendar.next_week()
             display = calendar.make_calendar()
 
         os.system('cls')
-
-# month change
-# move current week

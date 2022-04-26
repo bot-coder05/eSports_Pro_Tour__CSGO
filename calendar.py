@@ -3,11 +3,6 @@ from colored import fg, attr
 import random
 
 
-class Month:
-    def __int__(self):
-        pass
-
-
 class Calendar:
     def __init__(self):
         self.month_list = [
@@ -24,11 +19,10 @@ class Calendar:
             'NOVEMBER',
             'DECEMBER'
         ]
-        self.current_month = 9
-        self.current_week = 3
+        self.current_month = 0
+        self.current_week = 0
         self.current_year = 0
         self.month_schedule = self.make_month_schedule()
-        self.display = """"""
 
     @staticmethod
     def decorate_event_name(name, color):
@@ -96,7 +90,15 @@ class Calendar:
 
             self.month_schedule = self.make_month_schedule()
 
+    def select_event(self, val):
+        for event in self.month_schedule[self.current_week]:
+            if event != 0 and val.lower() in event.lower():
+                print('Here')
+
 
 if __name__ == '__main__':
     x = Calendar()
-    print(x.make_calendar())
+    while True:
+        print(x.make_calendar())
+        inp = input(": ")
+        x.select_event(inp)
