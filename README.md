@@ -4,5 +4,4 @@ Plan your schedule using a monthly calendar packed with events and tournaments, 
 Grind your way to the top of the leaderboards and win the grandest of prizes, cementing yourself in the history books as one of CS:GO's greatest!
 <br>
 <br>
-## Features
-
+## **Features**
