@@ -1,1 +1,2 @@
-# eSports_Pro_Tour__CSGO
+# eSports Pro Tour: Counter-strike
+
