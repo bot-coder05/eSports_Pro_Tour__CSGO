@@ -6,5 +6,4 @@ Grind your way to the top of the leaderboards and win the grandest of prizes, ce
 ## *Features*
 ### *Storylines
 1. Road to Major
-<br>
 asdasdasd
