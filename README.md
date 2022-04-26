@@ -4,3 +4,7 @@ eSports Pro Tour: CS:GO is a text-based game with simple RPG elements that cente
 Plan your schedule using a monthly calendar packed with events and tournaments, explore the HLTV rankings and forums, or train your skills in scrimmage matches. 
 Grind your way to the top of the leaderboards and win the grandest of prizes, cementing yourself in the history books as one of CS:GO's greatest!
 ### *Features*
+1. asdasdasd
+2. asasd
+3. asdasd
+4. asdasd
