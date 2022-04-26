@@ -5,14 +5,49 @@ class Tournament:
         self.tier = tier
 
 
-tournaments = [
-    Tournament('FPL', '#fca503', 'C'),
-    Tournament('LNC', '#fc9dd9', 'C'),
-    Tournament('KEN', 'blue', 'C'),
-    Tournament('ECC', 'green', 'C')
+events_b = [
+    Tournament('WEC', '#fca503', 'B'),
+    Tournament('TCP', '#fca503', 'B'),
+    Tournament('ELI', '#fca503', 'B'),
+    Tournament('CEE', '#fca503', 'B'),
+    Tournament('TBS', '#fca503', 'B'),
+    Tournament('FEC', '#fca503', 'B'),
+    Tournament('FSU', '#fca503', 'B'),
+    Tournament('WAL', '#fca503', 'B'),
+    Tournament('GCL', '#fca503', 'B')
 
+    # IESF World Esports Championship 2022 - WEC
+    # Tipsport Cup 2022 - TSC
+    # Elisa Invitational - ELI
+    # CEE Championship - CEE
+    # Thunderpick Bitcoin Series - TBS
+    # Fantasyexpo Champions - FEC
+    # Funspark ULTI - FSU
+    # WePLay Academy League - WAL
+    # Gamers Club League - GCL
 ]
 
-#     Tournament('EPL', 'yellow', 'S'),
-#     Tournament('BLT', 'blue', 'S'),
-#     Tournament('IEM', 'cyan', 'S'),
+events_c = [
+    Tournament('FPL', 'green', 'C'),
+    Tournament('FCL', 'green', 'C'),
+    Tournament('ICC', 'green', 'C'),
+    Tournament('ECC', 'green', 'C'),
+    Tournament('GCR', 'green', 'C'),
+    Tournament('RLC', 'green', 'C'),
+
+
+    # Faceit Pro League - FPL
+    # Faceit Challenger League - FCL
+    # ESL Impact Cash Cup - ICC
+    # ESEA Cash Cup - ECC
+    # Gamers Club Ranked - GCR
+    # REPUBLEAGUE Community Cup - RLC
+]
+
+# Tournament('IEQ', '#fc9dd9', 'Q'),
+# Tournament('ESQ', '#fc9dd9', 'Q'),
+# Tournament('RMQ', '#fc9dd9', 'Q'),
+
+# Tournament('EPL', 'yellow', 'S'),
+# Tournament('BLT', 'blue', 'S'),
+# Tournament('IEM', 'cyan', 'S'),

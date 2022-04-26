@@ -17,8 +17,8 @@ if __name__ == '__main__':
             display = cal.make_calendar()
         elif command == ".help":
             display = """
-                .calendar: changes display to thr calendar
-                          .week: proceeds to the next week
+.calendar: changes display to the calendar
+    .week: proceeds to the next week
 
             """
 

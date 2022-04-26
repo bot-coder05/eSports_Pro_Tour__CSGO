@@ -1,4 +1,4 @@
-from tournaments import tournaments, Tournament
+from tournaments import events_b, events_c, Tournament
 from colored import fg, attr
 import random
 
@@ -22,6 +22,9 @@ class Schedule:
         self.current_month = 0
         self.current_week = 0
         self.current_year = 0
+        self.count = 0
+        self.b_events = random.sample(events_b, 4)
+
         self.month_schedule = self.make_month_schedule()
 
     @staticmethod
@@ -31,10 +34,21 @@ class Schedule:
     def decorate_month(self):
         return attr('bold') + " ".join(self.month_list[self.current_month]) + attr('reset')
 
-    @staticmethod
-    def make_weekly_events():
-        events = random.sample(tournaments, random.randint(2, 4))
+    def make_weekly_events(self):
+        if self.count == 4:
+            self.count = 0
+
+        events = random.sample(events_c, random.randint(2, 4))
+        if len(events) == 4:
+            events[random.randint(0, len(events))] = self.b_events[self.count]
+            self.count += 1
+        else:
+            events.append(self.b_events[self.count])
+            self.count += 1
         return events
+
+    def make_random_b_events(self):
+        pass
 
     def make_week_schedule(self):
         week = [0, 0, 0, 0, 0, 0, 0]
@@ -94,3 +108,8 @@ class Schedule:
         for event in self.month_schedule[self.current_week]:
             if event != 0 and val.lower() in event.lower():
                 print('Here')
+
+
+if __name__ == '__main__':
+    x = Schedule()
+    print(x.b_events[0])
