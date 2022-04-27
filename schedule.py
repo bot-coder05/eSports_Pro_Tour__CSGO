@@ -1,6 +1,5 @@
-from tournaments import events_b, events_c, Tournament
+from year_constructor import construct_year
 from colored import fg, attr
-import random
 
 
 class Schedule:
@@ -19,59 +18,37 @@ class Schedule:
             'NOVEMBER',
             'DECEMBER'
         ]
-        self.current_month = 0
-        self.current_week = 0
+        self.current_month = 10
+        self.current_week = 3
         self.current_year = 0
         self.count = 0
-        self.b_events = random.sample(events_b, 4)
 
-        self.month_schedule = self.make_month_schedule()
+        self.year_schedule = construct_year()
+        self.month_schedule = construct_year()[self.current_month]
 
     @staticmethod
     def decorate_event_name(name, color):
         return f"{fg(color)}{attr('bold')}{name}{attr('reset')}"
 
-    def decorate_month(self):
+    @staticmethod
+    def get_decorated_week(week):
+        decorated_week = []
+        for event in week:
+            if event != 0:
+                decorated_week.append(f"{fg(event.color) + event.name + attr('reset')}")
+            else:
+                decorated_week.append(0)
+
+        return decorated_week
+
+    def get_decorated_month(self):
         return attr('bold') + " ".join(self.month_list[self.current_month]) + attr('reset')
 
-    def make_weekly_events(self):
-        if self.count == 4:
-            self.count = 0
-
-        events = random.sample(events_c, random.randint(2, 4))
-        if len(events) == 4:
-            events[random.randint(0, len(events))] = self.b_events[self.count]
-            self.count += 1
-        else:
-            events.append(self.b_events[self.count])
-            self.count += 1
-        return events
-
-    def make_random_b_events(self):
-        pass
-
-    def make_week_schedule(self):
-        week = [0, 0, 0, 0, 0, 0, 0]
-        events = self.make_weekly_events()
-        rand = random.sample(range(0, 6), len(events))
-        for index, event in enumerate(events):
-            week[rand[index]] = self.decorate_event_name(event.name, event.color)
-
-        return week
-
-    def make_month_schedule(self):
-
-        month = [self.make_week_schedule(), self.make_week_schedule(),
-                 self.make_week_schedule(), self.make_week_schedule()]
-
-        if self.current_month == 10:
-            major = Tournament('MJR', 'red', 'SSS')
-            month[0][1] = self.decorate_event_name(major.name, major.color)
-
-        return month
+    def get_decorated_year(self):
+        return attr('bold') + "YEAR " + str(self.current_year) + attr('reset')
 
     def make_calendar(self):
-        calendar = f"""{self.decorate_month()} - {attr('bold')}YEAR {self.current_year}{attr('reset')}\n\n"""
+        calendar = f"""{self.get_decorated_month()} - {self.get_decorated_year()}\n\n"""
 
         for index, week in enumerate(self.month_schedule):
             if index == self.current_week:
@@ -80,11 +57,12 @@ class Schedule:
                 decor = 'dim'
 
             week_display = f"""{attr(decor)}WEEK {index + 1}:{attr('reset')} """
-            for event in week:
+            decorated_week = self.get_decorated_week(week)
+            for event in decorated_week:
                 if event != 0:
-                    week_display = week_display + f'[ {event} ]'
+                    week_display = week_display + f"[ {event} ]"
                 else:
-                    week_display = week_display + f'[     ]'
+                    week_display = week_display + f"[     ]"
 
             calendar = calendar + week_display + '\n'
 
@@ -95,14 +73,20 @@ class Schedule:
             self.current_week += 1
         else:
             self.current_week = 0
+            self.next_month()
 
-            if self.current_month == 11:
-                self.current_month = 0
-                self.current_year += 1
-            else:
-                self.current_month += 1
+    def next_month(self):
+        if self.current_month != 11:
+            self.current_month += 1
+            self.month_schedule = self.year_schedule[self.current_month]
+        else:
+            self.current_month = 0
+            self.next_year()
 
-            self.month_schedule = self.make_month_schedule()
+    def next_year(self):
+        self.current_year += 1
+        self.year_schedule = construct_year()
+        self.month_schedule = self.year_schedule[self.current_month]
 
     def select_event(self, val):
         for event in self.month_schedule[self.current_week]:
@@ -112,4 +96,3 @@ class Schedule:
 
 if __name__ == '__main__':
     x = Schedule()
-    print(x.b_events[0])
