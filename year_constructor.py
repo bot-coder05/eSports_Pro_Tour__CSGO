@@ -66,6 +66,4 @@ def construct_year():
 
 
 if __name__ == '__main__':
-    x = construct_week(0, 0, events_b[0])
-    for i in x:
-        print(i)
+    pass
