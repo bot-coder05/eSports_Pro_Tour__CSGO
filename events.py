@@ -14,28 +14,21 @@ class STier(Tournament):
 
 
 events_s = [
-    STier('IEQ', 'blue', 'S', 0, 1, 1),
-    STier('IEP', 'blue', 'S', 0, 3, 1),
-    STier('IEM', 'blue', 'S', 1, 1, 1)
-
-    # SxTier("MJR", "#f92b2b", 10, 0, 1)
-    #
-    # STier("EPL", "#ffff09", 3, 0, 1)
-    # Stier("BLT", "#3956bd", 11, 0, 1)
-    # STier("IEM", "#176ab0", 1, 1, 1)
-    # STier("IEM", "#176ab0", 6, 0, 5)
-    #
-    # AxTier("ECL", "#ffff09", 2, 2, 1)
-    # AxTier("BSF", "#3956bd", 4, 1, 1)
-    # AxTier("BFF", "#3956bd", 9, 1, 1)
-    # AxTier("IEP", "#176ab0", 0, 3, 1)
-    # AxTier("IEP", "#176ab0", 5, 3, 5)
-    #
-    # ATier("ESQ", "#ffff09", 2, 0, 1)
-    # ATier("BSS", "#3956bd", 3, 3, 1)
-    # ATier("BFS", "#3956bd", 8, 3, 1)
-    # ATier("IEQ", "#176ab0", 0, 1, 1)
-    # ATier("IEQ", "#176ab0", 5, 1, 5)
+    STier('IEQ', 'blue', 'A', 0, 1, 1),
+    STier('IEP', 'blue', 'A', 0, 3, 1),
+    STier('IEM', 'blue', 'S', 1, 1, 1) 
+    STier("ESQ", "#ffff09", 'A', 2, 0, 1)
+    STier("ECL", "#ffff09", 'A', 2, 2, 1)
+    STier("EPL", "#ffff09", 'S', 3, 0, 1)
+    STier("BSS", "#3956bd", 'A', 3, 3, 1)
+    STier("BSF", "#3956bd", 'A', 4, 1, 1)
+    STier("IEQ", "#176ab0", 'A', 5, 1, 5)
+    STier("IEP", "#176ab0", 'A', 5, 3, 5)
+    STier("IEM", "#176ab0", 'S', 6, 0, 5)
+    STier("BFS", "#3956bd", 'A', 8, 3, 1)
+    STier("BFF", "#3956bd", 'A', 9, 1, 1)
+    STier("MJR", "#f92b2b", 'S', 10, 0, 1)
+    Stier("BLT", "#3956bd", 'S', 11, 0, 1)
 
     # Intel Extreme Qualifiers - IEQ
     # Intel Extreme PRO - IEP
