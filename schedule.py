@@ -18,7 +18,7 @@ class Schedule:
             'NOVEMBER',
             'DECEMBER'
         ]
-        self.current_month = 10
+        self.current_month = 11
         self.current_week = 3
         self.current_year = 0
         self.count = 0
@@ -75,7 +75,7 @@ class Schedule:
             self.current_week = 0
             self.next_month()
 
-    def next_month(self, val=1):
+    def next_month(self):
         if self.current_month != 11:
             self.current_month += 1
             self.month_schedule = self.year_schedule[self.current_month]

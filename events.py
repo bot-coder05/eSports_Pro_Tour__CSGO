@@ -5,6 +5,20 @@ class Tournament:
         self.tier = tier
 
 
+class STier(Tournament):
+    def __init__(self, name, color, tier, month, week, day):
+        super(STier, self).__init__(name, color, tier)
+        self.month = month
+        self.week = week
+        self.day = day
+
+
+events_s = [
+    STier('IEQ', 'blue', 'S', 0, 1, 1)
+
+    # Intel Extreme Qualifiers - IEQ
+]
+
 events_b = [
     Tournament('WEC', '#fca503', 'B'),
     Tournament('TCP', '#fca503', 'B'),
