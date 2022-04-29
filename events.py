@@ -29,6 +29,25 @@ events_s = [
     STier("BFF", "#3956bd", 'A', 9, 1, 1)
     STier("MJR", "#f92b2b", 'S', 10, 0, 1)
     Stier("BLT", "#3956bd", 'S', 11, 0, 1)
+    
+    # S+Tier("MJR", "#f92b2b", 10, 0, 1)
+
+    # STier("EPL", "#ffff09", 3, 0, 1)
+    # Stier("BLT", "#3956bd", 11, 0, 1)
+    # STier("IEM", "#176ab0", 1, 1, 1)
+    # STier("IEM", "#176ab0", 6, 0, 5)
+    
+    # A+Tier("ECL", "#ffff09", 2, 2, 1)
+    # A+Tier("BSF", "#3956bd", 4, 1, 1)
+    # A+Tier("BFF", "#3956bd", 9, 1, 1)
+    # A+Tier("IEP", "#176ab0", 0, 3, 1)
+    # A+Tier("IEP", "#176ab0", 5, 3, 5)
+    
+    # ATier("ESQ", "#ffff09", 2, 0, 1)
+    # ATier("BSS", "#3956bd", 3, 3, 1)
+    # ATier("BFS", "#3956bd", 8, 3, 1)
+    # ATier("IEQ", "#176ab0", 0, 1, 1)
+    # ATier("IEQ", "#176ab0", 5, 1, 5)
 
     # Intel Extreme Qualifiers - IEQ
     # Intel Extreme PRO - IEP
