@@ -15,7 +15,27 @@ class STier(Tournament):
 
 events_s = [
     STier('IEQ', 'blue', 'S', 0, 1, 1),
-    STier('IEP', 'blue', 'S', 0, 3, 1)
+    STier('IEP', 'blue', 'S', 0, 3, 1),
+    STier('IEM', 'blue', 'S', 1, 1, 1)
+
+    # SxTier("MJR", "#f92b2b", 10, 0, 1)
+    #
+    # STier("EPL", "#ffff09", 3, 0, 1)
+    # Stier("BLT", "#3956bd", 11, 0, 1)
+    # STier("IEM", "#176ab0", 1, 1, 1)
+    # STier("IEM", "#176ab0", 6, 0, 5)
+    #
+    # AxTier("ECL", "#ffff09", 2, 2, 1)
+    # AxTier("BSF", "#3956bd", 4, 1, 1)
+    # AxTier("BFF", "#3956bd", 9, 1, 1)
+    # AxTier("IEP", "#176ab0", 0, 3, 1)
+    # AxTier("IEP", "#176ab0", 5, 3, 5)
+    #
+    # ATier("ESQ", "#ffff09", 2, 0, 1)
+    # ATier("BSS", "#3956bd", 3, 3, 1)
+    # ATier("BFS", "#3956bd", 8, 3, 1)
+    # ATier("IEQ", "#176ab0", 0, 1, 1)
+    # ATier("IEQ", "#176ab0", 5, 1, 5)
 
     # Intel Extreme Qualifiers - IEQ
     # Intel Extreme PRO - IEP

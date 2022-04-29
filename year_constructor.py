@@ -66,4 +66,8 @@ def construct_year():
 
 
 if __name__ == '__main__':
-    pass
+    for i in construct_year()[0]:
+        for x in i:
+            if x != 0:
+                print(x.name)
+

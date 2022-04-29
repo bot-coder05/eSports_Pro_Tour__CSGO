@@ -3,6 +3,7 @@ from colored import fg, attr
 from schedule import Schedule
 
 
+# TODO: Disable .week when Viewing Other Months, Join Events, Warning When Joining Advance Events
 def color_word(color, word):
     return fg(color) + word + attr('reset')
 
