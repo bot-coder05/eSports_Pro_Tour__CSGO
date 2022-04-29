@@ -6,24 +6,28 @@ def get_s_event(month, week):
     for event in events_s:
         if event.month == month and event.week == week:
             return event
-        else:
-            return None
+
+    return None
 
 
-def construct_week_events(month, week, monthly_event):
+def construct_week(month, week, monthly_event):
     s_event = get_s_event(month, week)
 
     events = random.sample(events_c, random.randint(1, 3))
-    events.append(monthly_event)
 
-    week_schedule = [0, 0, 0, 0, 0, 0, 0, 0]
+    week_schedule = [0, 0, 0, 0, 0, 0, 0]
 
     if s_event is not None:
+        if len(events) == 3:
+            events.pop(random.randint(0, 2))
+
         day = s_event.day
         week_schedule[day] = s_event
-        rand = random.sample([i for i in range(0, 6) if i != s_event.day], len(events))
+        events.append(monthly_event)
+        rand = random.sample([i for i in range(0, 7) if i != s_event.day], len(events))
     else:
-        rand = random.sample(range(0, 6), len(events))
+        events.append(monthly_event)
+        rand = random.sample(range(0, 7), len(events))
 
     for ind, event in enumerate(events):
         week_schedule[rand[ind]] = event
@@ -33,10 +37,10 @@ def construct_week_events(month, week, monthly_event):
 
 def construct_month(m: int):
     monthly_events = random.sample(events_b, 4)
-    month = [construct_week_events(m, 0, monthly_events[0]),
-             construct_week_events(m, 1, monthly_events[1]),
-             construct_week_events(m, 2, monthly_events[2]),
-             construct_week_events(m, 3, monthly_events[3])
+    month = [construct_week(m, 0, monthly_events[0]),
+             construct_week(m, 1, monthly_events[1]),
+             construct_week(m, 2, monthly_events[2]),
+             construct_week(m, 3, monthly_events[3])
              ]
 
     return month
@@ -62,7 +66,6 @@ def construct_year():
 
 
 if __name__ == '__main__':
-    years = construct_year()
-    print(len(years))
-    print(years[0][0][0])
-    print(years[1][0][0])
+    x = construct_week(0, 0, events_b[0])
+    for i in x:
+        print(i)

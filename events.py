@@ -14,9 +14,11 @@ class STier(Tournament):
 
 
 events_s = [
-    STier('IEQ', 'blue', 'S', 0, 1, 1)
+    STier('IEQ', 'blue', 'S', 0, 1, 1),
+    STier('IEP', 'blue', 'S', 0, 3, 1)
 
     # Intel Extreme Qualifiers - IEQ
+    # Intel Extreme PRO - IEP
 ]
 
 events_b = [

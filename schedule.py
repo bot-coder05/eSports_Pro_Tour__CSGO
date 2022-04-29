@@ -18,8 +18,8 @@ class Schedule:
             'NOVEMBER',
             'DECEMBER'
         ]
-        self.current_month = 11
-        self.current_week = 3
+        self.current_month = 0
+        self.current_week = 0
         self.current_year = 0
         self.count = 0
 
@@ -100,3 +100,4 @@ class Schedule:
 
 if __name__ == '__main__':
     x = Schedule()
+    print(x.month_schedule)
