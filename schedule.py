@@ -95,9 +95,8 @@ class Schedule:
     def select_event(self, val):
         for ind, event in enumerate(self.month_schedule[self.current_week]):
             if event != 0 and val.lower() in event.name.lower():
-                print(self.month_schedule[ind + event.length])
-                self.month_schedule[ind + event.length] = 0
-                print(self.month_schedule[ind + event.length])
+                for i in range(event.length):
+                    self.month_schedule[self.current_week][ind + i + 1] = 0
 
 
 if __name__ == '__main__':
