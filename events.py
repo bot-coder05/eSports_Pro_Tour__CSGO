@@ -18,37 +18,41 @@ class STier(Tournament):
 
 
 events_s = [
-    STier('IEQ', '#176ab0', 'A', random.randint(1, 2), 0, 1, 1),
-    STier('IEP', '#176ab0', 'A', random.randint(1, 2), 0, 3, 1),
     STier('IEM', '#176ab0', 'S', random.randint(1, 2), 1, 1, 1),
-    STier("ESQ", "#ffff09", 'A', random.randint(1, 2), 2, 0, 1),
-    STier("ECL", "#ffff09", 'A', random.randint(1, 2), 2, 2, 1),
     STier("EPL", "#ffff09", 'S', random.randint(1, 2), 3, 0, 1),
-    STier("BSS", "#3956bd", 'A', random.randint(1, 2), 3, 3, 1),
-    STier("BSF", "#3956bd", 'A', random.randint(1, 2), 4, 1, 1),
-    STier("IEQ", "#176ab0", 'A', random.randint(1, 2), 5, 1, 5),
-    STier("IEP", "#176ab0", 'A', random.randint(1, 2), 5, 3, 5),
     STier("IEM", "#176ab0", 'S', random.randint(1, 2), 6, 0, 5),
-    STier("BFS", "#3956bd", 'A', random.randint(1, 2), 8, 3, 1),
-    STier("BFF", "#3956bd", 'A', random.randint(1, 2), 9, 1, 1),
     STier("MJR", "#f92b2b", 'S', random.randint(1, 2), 10, 0, 1),
     STier("BLT", "#3956bd", 'S', random.randint(1, 2), 11, 0, 1)
 
+    # Intel Extreme Masters - IEM
+    # ESL PRO League - EPL
+    # Blast Premier: World Final - BLT
+    # Major - MJR
+]
+
+events_a = [
+    ATier('IEQ', '#176ab0', 'A', random.randint(1, 2), 0, 1, 1),
+    ATier('IEP', '#176ab0', 'A', random.randint(1, 2), 0, 3, 1),
+    ATier("ESQ", "#ffff09", 'A', random.randint(1, 2), 2, 0, 1),
+    ATier("ECL", "#ffff09", 'A', random.randint(1, 2), 2, 2, 1),
+    ATier("BSS", "#3956bd", 'A', random.randint(1, 2), 3, 3, 1),
+    ATier("BSF", "#3956bd", 'A', random.randint(1, 2), 4, 1, 1),
+    ATier("IEQ", "#176ab0", 'A', random.randint(1, 2), 5, 1, 5),
+    ATier("IEP", "#176ab0", 'A', random.randint(1, 2), 5, 3, 5),
+    ATier("BFS", "#3956bd", 'A', random.randint(1, 2), 8, 3, 1),
+    ATier("BFF", "#3956bd", 'A', random.randint(1, 2), 9, 1, 1),
+
     # Intel Extreme Qualifiers - IEQ
     # Intel Extreme PRO - IEP
-    # Intel Extreme Masters - IEM
-
+    
     # ESL Open Qualifier - ESQ
     # ESL Challenger League - ECL
-    # ESL PRO League - EPL
 
     # Blast Spring Showdown - BSS
     # Blast Spring Finals - BSF
     # Blast Fall Showdown -BFS
     # Blast Fall Finals - BFF
-    # Blast Premier: World Final - BLT
 
-    # Major - MJR
 ]
 
 events_b = [
