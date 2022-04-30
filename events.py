@@ -1,68 +1,66 @@
+import random
+
+
 class Tournament:
-    def __init__(self, name, color, tier):
+    def __init__(self, name, color, tier, length):
         self.name = name
         self.color = color
         self.tier = tier
+        self.length = length
 
 
 class STier(Tournament):
-    def __init__(self, name, color, tier, month, week, day):
-        super(STier, self).__init__(name, color, tier)
+    def __init__(self, name, color, tier, length, month, week, day):
+        super(STier, self).__init__(name, color, tier, length)
         self.month = month
         self.week = week
         self.day = day
 
 
 events_s = [
-    STier('IEQ', 'blue', 'A', 0, 1, 1),
-    STier('IEP', 'blue', 'A', 0, 3, 1),
-    STier('IEM', 'blue', 'S', 1, 1, 1) 
-    STier("ESQ", "#ffff09", 'A', 2, 0, 1)
-    STier("ECL", "#ffff09", 'A', 2, 2, 1)
-    STier("EPL", "#ffff09", 'S', 3, 0, 1)
-    STier("BSS", "#3956bd", 'A', 3, 3, 1)
-    STier("BSF", "#3956bd", 'A', 4, 1, 1)
-    STier("IEQ", "#176ab0", 'A', 5, 1, 5)
-    STier("IEP", "#176ab0", 'A', 5, 3, 5)
-    STier("IEM", "#176ab0", 'S', 6, 0, 5)
-    STier("BFS", "#3956bd", 'A', 8, 3, 1)
-    STier("BFF", "#3956bd", 'A', 9, 1, 1)
-    STier("MJR", "#f92b2b", 'S', 10, 0, 1)
-    Stier("BLT", "#3956bd", 'S', 11, 0, 1)
-    
-    # S+Tier("MJR", "#f92b2b", 10, 0, 1)
-
-    # STier("EPL", "#ffff09", 3, 0, 1)
-    # Stier("BLT", "#3956bd", 11, 0, 1)
-    # STier("IEM", "#176ab0", 1, 1, 1)
-    # STier("IEM", "#176ab0", 6, 0, 5)
-    
-    # A+Tier("ECL", "#ffff09", 2, 2, 1)
-    # A+Tier("BSF", "#3956bd", 4, 1, 1)
-    # A+Tier("BFF", "#3956bd", 9, 1, 1)
-    # A+Tier("IEP", "#176ab0", 0, 3, 1)
-    # A+Tier("IEP", "#176ab0", 5, 3, 5)
-    
-    # ATier("ESQ", "#ffff09", 2, 0, 1)
-    # ATier("BSS", "#3956bd", 3, 3, 1)
-    # ATier("BFS", "#3956bd", 8, 3, 1)
-    # ATier("IEQ", "#176ab0", 0, 1, 1)
-    # ATier("IEQ", "#176ab0", 5, 1, 5)
+    STier('IEQ', '#176ab0', 'A', random.randint(1, 2), 0, 1, 1),
+    STier('IEP', '#176ab0', 'A', random.randint(1, 2), 0, 3, 1),
+    STier('IEM', '#176ab0', 'S', random.randint(1, 2), 1, 1, 1),
+    STier("ESQ", "#ffff09", 'A', random.randint(1, 2), 2, 0, 1),
+    STier("ECL", "#ffff09", 'A', random.randint(1, 2), 2, 2, 1),
+    STier("EPL", "#ffff09", 'S', random.randint(1, 2), 3, 0, 1),
+    STier("BSS", "#3956bd", 'A', random.randint(1, 2), 3, 3, 1),
+    STier("BSF", "#3956bd", 'A', random.randint(1, 2), 4, 1, 1),
+    STier("IEQ", "#176ab0", 'A', random.randint(1, 2), 5, 1, 5),
+    STier("IEP", "#176ab0", 'A', random.randint(1, 2), 5, 3, 5),
+    STier("IEM", "#176ab0", 'S', random.randint(1, 2), 6, 0, 5),
+    STier("BFS", "#3956bd", 'A', random.randint(1, 2), 8, 3, 1),
+    STier("BFF", "#3956bd", 'A', random.randint(1, 2), 9, 1, 1),
+    STier("MJR", "#f92b2b", 'S', random.randint(1, 2), 10, 0, 1),
+    STier("BLT", "#3956bd", 'S', random.randint(1, 2), 11, 0, 1)
 
     # Intel Extreme Qualifiers - IEQ
     # Intel Extreme PRO - IEP
+    # Intel Extreme Masters - IEM
+
+    # ESL Open Qualifier - ESQ
+    # ESL Challenger League - ECL
+    # ESL PRO League - EPL
+
+    # Blast Spring Showdown - BSS
+    # Blast Spring Finals - BSF
+    # Blast Fall Showdown -BFS
+    # Blast Fall Finals - BFF
+    # Blast Premier: World Final - BLT
+
+    # Major - MJR
 ]
 
 events_b = [
-    Tournament('WEC', '#fca503', 'B'),
-    Tournament('TCP', '#fca503', 'B'),
-    Tournament('ELI', '#fca503', 'B'),
-    Tournament('CEE', '#fca503', 'B'),
-    Tournament('TBS', '#fca503', 'B'),
-    Tournament('FEC', '#fca503', 'B'),
-    Tournament('FSU', '#fca503', 'B'),
-    Tournament('WAL', '#fca503', 'B'),
-    Tournament('GCL', '#fca503', 'B')
+    Tournament('WEC', '#fca503', 'B', random.randint(3, 5)),
+    Tournament('TCP', '#fca503', 'B', random.randint(3, 5)),
+    Tournament('ELI', '#fca503', 'B', random.randint(3, 5)),
+    Tournament('CEE', '#fca503', 'B', random.randint(3, 5)),
+    Tournament('TBS', '#fca503', 'B', random.randint(3, 5)),
+    Tournament('FEC', '#fca503', 'B', random.randint(3, 5)),
+    Tournament('FSU', '#fca503', 'B', random.randint(3, 5)),
+    Tournament('WAL', '#fca503', 'B', random.randint(3, 5)),
+    Tournament('GCL', '#fca503', 'B', random.randint(3, 5))
 
     # IESF World Esports Championship 2022 - WEC
     # Tipsport Cup 2022 - TSC
@@ -76,12 +74,12 @@ events_b = [
 ]
 
 events_c = [
-    Tournament('FPL', 'green', 'C'),
-    Tournament('FCL', 'green', 'C'),
-    Tournament('ICC', 'green', 'C'),
-    Tournament('ECC', 'green', 'C'),
-    Tournament('GCR', 'green', 'C'),
-    Tournament('RLC', 'green', 'C'),
+    Tournament('FPL', 'green', 'C', random.randint(1, 2)),
+    Tournament('FCL', 'green', 'C', random.randint(1, 2)),
+    Tournament('ICC', 'green', 'C', random.randint(1, 2)),
+    Tournament('ECC', 'green', 'C', random.randint(1, 2)),
+    Tournament('GCR', 'green', 'C', random.randint(1, 2)),
+    Tournament('RLC', 'green', 'C', random.randint(1, 2))
 
 
     # Faceit Pro League - FPL

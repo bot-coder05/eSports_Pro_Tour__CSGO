@@ -1,4 +1,4 @@
-from year_constructor import construct_year
+from generate_year import construct_year
 from colored import fg, attr
 
 
@@ -93,9 +93,11 @@ class Schedule:
         self.month_schedule = self.year_schedule[self.current_month]
 
     def select_event(self, val):
-        for event in self.month_schedule[self.current_week]:
-            if event != 0 and val.lower() in event.lower():
-                print('Here')
+        for ind, event in enumerate(self.month_schedule[self.current_week]):
+            if event != 0 and val.lower() in event.name.lower():
+                print(self.month_schedule[ind + event.length])
+                self.month_schedule[ind + event.length] = 0
+                print(self.month_schedule[ind + event.length])
 
 
 if __name__ == '__main__':

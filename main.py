@@ -32,6 +32,11 @@ if __name__ == '__main__':
                 cal.view_month(month_list.index(month))
                 display = cal.make_calendar()
 
+        elif command.split()[0] == '.event':
+            cal.select_event(command.split()[1])
+            display = cal.make_calendar()
+            break
+
         elif command == ".help":
             display = f"""
 {color_word('light_green', '.calendar')}: changes display to the calendar
