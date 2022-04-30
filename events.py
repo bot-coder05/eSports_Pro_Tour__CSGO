@@ -16,6 +16,12 @@ class STier(Tournament):
         self.week = week
         self.day = day
 
+class ATier(Tournament):
+    def __init__(self, name, color, tier, length, month, week, day):
+        super(ATier, self).__init__(name, color, tier, length)
+        self.month = month
+        self.week = week
+        self.day = day
 
 events_s = [
     STier('IEM', '#176ab0', 'S', random.randint(1, 2), 1, 1, 1),
