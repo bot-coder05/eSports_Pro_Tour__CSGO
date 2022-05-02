@@ -1,1 +1,1 @@
-Currently Not Accepting Contributions. 
+Currently, Not Accepting Contributions. 
