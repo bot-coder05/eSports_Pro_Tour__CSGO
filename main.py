@@ -2,7 +2,6 @@ import os
 from modules.help_message import color_word, help_message
 from modules.schedule import Schedule
 
-
 if __name__ == '__main__':
     cal = Schedule()
     display = cal.make_calendar(cal.current_month)
@@ -49,7 +48,6 @@ if __name__ == '__main__':
                 message = f"{color_word('red', 'No Month Entered')}"
 
         elif command.split()[0] == ".event":
-
             if len(command.split()) == 2:
                 event = cal.get_event(command.split()[1])
                 if event is not None:

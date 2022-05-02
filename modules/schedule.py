@@ -24,7 +24,7 @@ class Schedule:
         self.count = 0
 
         self.year_schedule = construct_year()
-        self.month_schedule = construct_year()[self.current_month]
+        self.month_schedule = self.year_schedule[self.current_month]
 
     @staticmethod
     def decorate_event_name(name, color):
@@ -97,8 +97,8 @@ class Schedule:
         for ind, event in enumerate(self.month_schedule[self.current_week]):
             if event != 0 and val.lower() in event.name.lower():
                 return event
-            else:
-                return None
+
+        return None
 
     def select_event(self, val):
         for ind, event in enumerate(self.month_schedule[self.current_week]):
@@ -109,4 +109,3 @@ class Schedule:
 
 if __name__ == '__main__':
     x = Schedule()
-    print(x.month_schedule)
