@@ -1,4 +1,4 @@
-from generate_year import construct_year
+from modules.generate_year import construct_year
 from colored import fg, attr
 
 
@@ -31,6 +31,10 @@ class Schedule:
         return f"{fg(color)}{attr('bold')}{name}{attr('reset')}"
 
     @staticmethod
+    def get_decorated_month(month):
+        return attr('bold') + " ".join(month) + attr('reset')
+
+    @staticmethod
     def get_decorated_week(week):
         decorated_week = []
         for event in week:
@@ -41,16 +45,14 @@ class Schedule:
 
         return decorated_week
 
-    def get_decorated_month(self):
-        return attr('bold') + " ".join(self.month_list[self.current_month]) + attr('reset')
-
     def get_decorated_year(self):
         return attr('bold') + "YEAR " + str(self.current_year) + attr('reset')
 
-    def make_calendar(self):
-        calendar = f"""{self.get_decorated_month()} - {self.get_decorated_year()}\n\n"""
+    def make_calendar(self, month):
+        calendar = f"""{self.get_decorated_month(self.month_list[month])} - {self.get_decorated_year()}\n\n"""
+        month_schedule = self.year_schedule[month]
 
-        for index, week in enumerate(self.month_schedule):
+        for index, week in enumerate(month_schedule):
             if index == self.current_week:
                 decor = 'bold'
             else:
@@ -83,14 +85,20 @@ class Schedule:
             self.current_month = 0
             self.next_year()
 
-    def view_month(self, val):
-        self.current_month = val
-        self.month_schedule = self.year_schedule[self.current_month]
-
     def next_year(self):
         self.current_year += 1
         self.year_schedule = construct_year()
         self.month_schedule = self.year_schedule[self.current_month]
+
+    def view_month(self, val):
+        return self.make_calendar(val)
+
+    def get_event(self, val):
+        for ind, event in enumerate(self.month_schedule[self.current_week]):
+            if event != 0 and val.lower() in event.name.lower():
+                return event
+            else:
+                return None
 
     def select_event(self, val):
         for ind, event in enumerate(self.month_schedule[self.current_week]):

@@ -8,7 +8,15 @@ class Tournament:
         self.tier = tier
         self.length = length
         self.prize_pool = prize_pool
-        self.games = matches
+        self.matches = matches
+
+    def display(self):
+        return f"""Event: {self.name}
+Tier: {self.tier}
+Duration/Length: {self.length} Days
+Prize Pool: {self.prize_pool}
+Matches: {self.matches}
+        """
 
 
 class STier(Tournament):
@@ -27,20 +35,13 @@ class ATier(Tournament):
         self.day = day
 
 
-events_s = [
+fixed_events = [
     STier('IEM', '#176ab0', 'S', random.randint(1, 2), 0, 0, 1, 1, 1),
     STier("EPL", "#ffff09", 'S', random.randint(1, 2), 0, 0, 3, 0, 1),
     STier("IEM", "#176ab0", 'S', random.randint(1, 2), 0, 0, 6, 0, 5),
     STier("MJR", "#f92b2b", 'S', random.randint(1, 2), 0, 0, 10, 0, 1),  # SSS
-    STier("BLT", "#3956bd", 'S', random.randint(1, 2), 0, 0, 11, 0, 1)
+    STier("BLT", "#3956bd", 'S', random.randint(1, 2), 0, 0, 11, 0, 1),
 
-    # Intel Extreme Masters - IEM
-    # ESL PRO League - EPL
-    # Blast Premier: World Final - BLT
-    # Major - MJR
-]
-
-events_a = [
     ATier('IEQ', '#176ab0', 'A', random.randint(1, 2), 0, 0, 0, 1, 1),
     ATier('IEP', '#176ab0', 'A', random.randint(1, 2), 0, 0, 0, 3, 1),  # A+
     ATier("ESQ", "#ffff09", 'A', random.randint(1, 2), 0, 0, 2, 0, 1),
@@ -50,11 +51,16 @@ events_a = [
     ATier("IEQ", "#176ab0", 'A', random.randint(1, 2), 0, 0, 5, 1, 5),
     ATier("IEP", "#176ab0", 'A', random.randint(1, 2), 0, 0, 5, 3, 5),  # A+
     ATier("BFS", "#3956bd", 'A', random.randint(1, 2), 0, 0, 8, 3, 1),
-    ATier("BFF", "#3956bd", 'A', random.randint(1, 2), 0, 0, 9, 1, 1),  # A+
+    ATier("BFF", "#3956bd", 'A', random.randint(1, 2), 0, 0, 9, 1, 1)  # A+
+
+    # Intel Extreme Masters - IEM
+    # ESL PRO League - EPL
+    # Blast Premier: World Final - BLT
+    # Major - MJR
 
     # Intel Extreme Qualifiers - IEQ
     # Intel Extreme PRO - IEP
-    
+
     # ESL Open Qualifier - ESQ
     # ESL Challenger League - ECL
 
@@ -62,10 +68,9 @@ events_a = [
     # Blast Spring Finals - BSF
     # Blast Fall Showdown -BFS
     # Blast Fall Finals - BFF
-
 ]
 
-events_b = [
+monthly_events = [
     Tournament('WEC', '#fca503', 'B', random.randint(3, 5), 0, 0),
     Tournament('TCP', '#fca503', 'B', random.randint(3, 5), 0, 0),
     Tournament('ELI', '#fca503', 'B', random.randint(3, 5), 0, 0),
@@ -87,7 +92,7 @@ events_b = [
     # Gamers Club League - GCL
 ]
 
-events_c = [
+weekly_events = [
     Tournament('FPL', 'green', 'C', random.randint(1, 2), 0, 0),
     Tournament('FCL', 'green', 'C', random.randint(1, 2), 0, 0),
     Tournament('ICC', 'green', 'C', random.randint(1, 2), 0, 0),

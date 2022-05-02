@@ -1,47 +1,75 @@
 import os
-from colored import fg, attr
-from schedule import Schedule
-
-
-def color_word(color, word):
-    return fg(color) + word + attr('reset')
+from modules.help_message import color_word, help_message
+from modules.schedule import Schedule
 
 
 if __name__ == '__main__':
     cal = Schedule()
-    display = cal.make_calendar()
+    display = cal.make_calendar(cal.current_month)
+
+    page = "calendar"
 
     while True:
+        message = ""
 
         print(display)
+        print(message)
         command = input("Input: ")
 
         if command == '.calendar':
-            display = cal.make_calendar()
+
+            display = cal.make_calendar(cal.current_month)
+            page = "calendar"
 
         elif command == ".week":
-            cal.next_week()
-            display = cal.make_calendar()
+
+            if page == "calendar":
+                cal.next_week()
+                display = cal.make_calendar(cal.current_month)
+            elif page == 'month_view':
+                message = 'Please return to the current month to use this command'
 
         elif command.split()[0] == ".month":
 
-            month = command.split()[1].upper()
-            month_list = cal.month_list
-            if month in month_list:
-                cal.view_month(month_list.index(month))
-                display = cal.make_calendar()
+            if len(command.split()) == 2:
+                month = command.split()[1].upper()
+                month_list = cal.month_list
 
-        elif command.split()[0] == '.confirm':
-            cal.select_event(command.split()[1])
-            display = cal.make_calendar()
+                if month == 'current':
+                    display = cal.make_calendar(cal.current_month)
+
+                elif month in month_list:
+                    if month_list.index(month) != cal.current_month:
+                        display = cal.view_month(month_list.index(month))
+                        page = "month_view"
+                    else:
+                        display = cal.make_calendar(cal.current_month)
+                        page = "calendar"
+            else:
+                message = f"{color_word('red', 'No Month Entered')}"
+
+        elif command.split()[0] == ".event":
+
+            if len(command.split()) == 2:
+                event = cal.get_event(command.split()[1])
+                if event is not None:
+                    display = event.display()
+                    message = "Confirm?"
+                    page = "event"
+                else:
+                    message = "Event is Unavailable"
+            else:
+                message = f"{color_word('red', 'No Event Entered')}"
+
+        elif command == '.confirm':
+
+            if page == "event":
+                cal.select_event(command.split()[1])
+                display = cal.make_calendar(cal.current_month)
+            else:
+                message = f"{color_word('red', 'No Event Entered')}"
 
         elif command == ".help":
-            display = f"""
-{color_word('light_green', '.calendar')}: changes display to the calendar
-    {color_word('light_green', '.week')}: proceeds to the next week
-    {color_word('light_green', '.month')} {color_word('red', '[month name]')}: view [month name]
-    {color_word('light_green', '.event')} {color_word('red', '[event name]')}: view event information
-        {color_word('light_green', '.confirm')}: confirm event selection
-            """
+            display = help_message
 
         os.system('cls')

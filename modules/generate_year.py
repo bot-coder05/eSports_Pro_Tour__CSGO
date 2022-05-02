@@ -1,9 +1,9 @@
 import random
-from events import events_b, events_c, events_s
+from modules.events import monthly_events, weekly_events, fixed_events
 
 
 def get_s_event(month, week):
-    for event in events_s:
+    for event in fixed_events:
         if event.month == month and event.week == week:
             return event
 
@@ -13,7 +13,7 @@ def get_s_event(month, week):
 def construct_week(month, week, monthly_event):
     s_event = get_s_event(month, week)
 
-    events = random.sample(events_c, random.randint(1, 3))
+    events = random.sample(weekly_events, random.randint(1, 3))
 
     week_schedule = [0, 0, 0, 0, 0, 0, 0]
 
@@ -36,11 +36,11 @@ def construct_week(month, week, monthly_event):
 
 
 def construct_month(m: int):
-    monthly_events = random.sample(events_b, 4)
-    month = [construct_week(m, 0, monthly_events[0]),
-             construct_week(m, 1, monthly_events[1]),
-             construct_week(m, 2, monthly_events[2]),
-             construct_week(m, 3, monthly_events[3])
+    month_events = random.sample(monthly_events, 4)
+    month = [construct_week(m, 0, month_events[0]),
+             construct_week(m, 1, month_events[1]),
+             construct_week(m, 2, month_events[2]),
+             construct_week(m, 3, month_events[3])
              ]
 
     return month
@@ -66,8 +66,4 @@ def construct_year():
 
 
 if __name__ == '__main__':
-    for i in construct_year()[0]:
-        for x in i:
-            if x != 0:
-                print(x.name)
-
+    pass
