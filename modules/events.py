@@ -1,7 +1,7 @@
 import random
 
 
-class Tournament:
+class Event:
     def __init__(self, name, color, tier, length, prize_pool, matches):
         self.name = name
         self.color = color
@@ -18,40 +18,35 @@ Prize Pool: {self.prize_pool}
 Matches: {self.matches}
         """
 
+    def encode(self):
+        return self.__dict__
 
-class STier(Tournament):
+
+class FixedEvent(Event):
     def __init__(self, name, color, tier, length, prize_pool, matches, month, week, day):
-        super(STier, self).__init__(name, color, tier, length, prize_pool, matches)
-        self.month = month
-        self.week = week
-        self.day = day
-
-
-class ATier(Tournament):
-    def __init__(self, name, color, tier, length, prize_pool, matches, month, week, day):
-        super(ATier, self).__init__(name, color, tier, length, prize_pool, matches)
+        super(FixedEvent, self).__init__(name, color, tier, length, prize_pool, matches)
         self.month = month
         self.week = week
         self.day = day
 
 
 fixed_events = [
-    STier('IEM', '#176ab0', 'S', random.randint(1, 2), 0, 0, 1, 1, 1),
-    STier("EPL", "#ffff09", 'S', random.randint(1, 2), 0, 0, 3, 0, 1),
-    STier("IEM", "#176ab0", 'S', random.randint(1, 2), 0, 0, 6, 0, 5),
-    STier("MJR", "#f92b2b", 'S', random.randint(1, 2), 0, 0, 10, 0, 1),  # SSS
-    STier("BLT", "#3956bd", 'S', random.randint(1, 2), 0, 0, 11, 0, 1),
+    FixedEvent('IEM', '#176ab0', 'S', random.randint(1, 2), 0, 0, 1, 1, 1),
+    FixedEvent("EPL", "#ffff09", 'S', random.randint(1, 2), 0, 0, 3, 0, 1),
+    FixedEvent("IEM", "#176ab0", 'S', random.randint(1, 2), 0, 0, 6, 0, 5),
+    FixedEvent("MJR", "#f92b2b", 'S', random.randint(1, 2), 0, 0, 10, 0, 1),  # SSS
+    FixedEvent("BLT", "#3956bd", 'S', random.randint(1, 2), 0, 0, 11, 0, 1),
 
-    ATier('IEQ', '#176ab0', 'A', random.randint(1, 2), 0, 0, 0, 1, 1),
-    ATier('IEP', '#176ab0', 'A', random.randint(1, 2), 0, 0, 0, 3, 1),  # A+
-    ATier("ESQ", "#ffff09", 'A', random.randint(1, 2), 0, 0, 2, 0, 1),
-    ATier("ECL", "#ffff09", 'A', random.randint(1, 2), 0, 0, 2, 2, 1),  # A+
-    ATier("BSS", "#3956bd", 'A', random.randint(1, 2), 0, 0, 3, 3, 1),
-    ATier("BSF", "#3956bd", 'A', random.randint(1, 2), 0, 0, 4, 1, 1),  # A+
-    ATier("IEQ", "#176ab0", 'A', random.randint(1, 2), 0, 0, 5, 1, 5),
-    ATier("IEP", "#176ab0", 'A', random.randint(1, 2), 0, 0, 5, 3, 5),  # A+
-    ATier("BFS", "#3956bd", 'A', random.randint(1, 2), 0, 0, 8, 3, 1),
-    ATier("BFF", "#3956bd", 'A', random.randint(1, 2), 0, 0, 9, 1, 1)  # A+
+    FixedEvent('IEQ', '#176ab0', 'A', random.randint(1, 2), 0, 0, 0, 1, 1),
+    FixedEvent('IEP', '#176ab0', 'A', random.randint(1, 2), 0, 0, 0, 3, 1),  # A+
+    FixedEvent("ESQ", "#ffff09", 'A', random.randint(1, 2), 0, 0, 2, 0, 1),
+    FixedEvent("ECL", "#ffff09", 'A', random.randint(1, 2), 0, 0, 2, 2, 1),  # A+
+    FixedEvent("BSS", "#3956bd", 'A', random.randint(1, 2), 0, 0, 3, 3, 1),
+    FixedEvent("BSF", "#3956bd", 'A', random.randint(1, 2), 0, 0, 4, 1, 1),  # A+
+    FixedEvent("IEQ", "#176ab0", 'A', random.randint(1, 2), 0, 0, 5, 1, 5),
+    FixedEvent("IEP", "#176ab0", 'A', random.randint(1, 2), 0, 0, 5, 3, 5),  # A+
+    FixedEvent("BFS", "#3956bd", 'A', random.randint(1, 2), 0, 0, 8, 3, 1),
+    FixedEvent("BFF", "#3956bd", 'A', random.randint(1, 2), 0, 0, 9, 1, 1)  # A+
 
     # Intel Extreme Masters - IEM
     # ESL PRO League - EPL
@@ -71,15 +66,15 @@ fixed_events = [
 ]
 
 monthly_events = [
-    Tournament('WEC', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Tournament('TCP', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Tournament('ELI', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Tournament('CEE', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Tournament('TBS', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Tournament('FEC', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Tournament('FSU', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Tournament('WAL', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Tournament('GCL', '#fca503', 'B', random.randint(3, 5), 0, 0)
+    Event('WEC', '#fca503', 'B', random.randint(3, 5), 0, 0),
+    Event('TCP', '#fca503', 'B', random.randint(3, 5), 0, 0),
+    Event('ELI', '#fca503', 'B', random.randint(3, 5), 0, 0),
+    Event('CEE', '#fca503', 'B', random.randint(3, 5), 0, 0),
+    Event('TBS', '#fca503', 'B', random.randint(3, 5), 0, 0),
+    Event('FEC', '#fca503', 'B', random.randint(3, 5), 0, 0),
+    Event('FSU', '#fca503', 'B', random.randint(3, 5), 0, 0),
+    Event('WAL', '#fca503', 'B', random.randint(3, 5), 0, 0),
+    Event('GCL', '#fca503', 'B', random.randint(3, 5), 0, 0)
 
     # IESF World Esports Championship 2022 - WEC
     # Tipsport Cup 2022 - TSC
@@ -93,12 +88,12 @@ monthly_events = [
 ]
 
 weekly_events = [
-    Tournament('FPL', 'green', 'C', random.randint(1, 2), 0, 0),
-    Tournament('FCL', 'green', 'C', random.randint(1, 2), 0, 0),
-    Tournament('ICC', 'green', 'C', random.randint(1, 2), 0, 0),
-    Tournament('ECC', 'green', 'C', random.randint(1, 2), 0, 0),
-    Tournament('GCR', 'green', 'C', random.randint(1, 2), 0, 0),
-    Tournament('RLC', 'green', 'C', random.randint(1, 2), 0, 0)
+    Event('FPL', 'green', 'C', random.randint(1, 2), 0, 0),
+    Event('FCL', 'green', 'C', random.randint(1, 2), 0, 0),
+    Event('ICC', 'green', 'C', random.randint(1, 2), 0, 0),
+    Event('ECC', 'green', 'C', random.randint(1, 2), 0, 0),
+    Event('GCR', 'green', 'C', random.randint(1, 2), 0, 0),
+    Event('RLC', 'green', 'C', random.randint(1, 2), 0, 0)
 
 
     # Faceit Pro League - FPL
@@ -116,3 +111,6 @@ weekly_events = [
 # Tournament('EPL', 'yellow', 'S'),
 # Tournament('BLT', 'blue', 'S'),
 # Tournament('IEM', 'cyan', 'S'),
+
+if __name__ == '__main__':
+    print(Event('RLC', 'green', 'C', random.randint(1, 2), 0, 0).encode())

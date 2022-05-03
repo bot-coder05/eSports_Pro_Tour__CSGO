@@ -1,11 +1,22 @@
 import os
 from modules.help_message import color_word, help_message
 from modules.schedule import Schedule
+from modules.save import check_save_file, save_data, get_saved_data, fix_schedule_data
+
 
 if __name__ == '__main__':
     cal = Schedule()
-    display = cal.make_calendar(cal.current_month)
 
+    if check_save_file():
+        data = get_saved_data()
+        cal.current_year = data['current_year']
+        cal.current_month = data['current_month']
+        cal.current_week = data['current_week']
+        cal.year_schedule = fix_schedule_data(data['year_schedule'])
+    else:
+        save_data(cal.year_schedule, cal.current_year, cal.current_month, cal.current_week)
+
+    display = cal.make_calendar(cal.current_month)
     page = "calendar"
 
     while True:
@@ -15,7 +26,10 @@ if __name__ == '__main__':
         print(message)
         command = input("Input: ")
 
-        if command == '.calendar':
+        if command == "":
+            pass
+
+        elif command == '.calendar':
 
             display = cal.make_calendar(cal.current_month)
             page = "calendar"
@@ -66,6 +80,9 @@ if __name__ == '__main__':
                 display = cal.make_calendar(cal.current_month)
             else:
                 message = f"{color_word('red', 'No Event Entered')}"
+
+        elif command == '.save':
+            save_data(cal.year_schedule, cal.current_year, cal.current_month, cal.current_week)
 
         elif command == ".help":
             display = help_message

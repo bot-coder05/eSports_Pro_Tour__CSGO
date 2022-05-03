@@ -21,7 +21,6 @@ class Schedule:
         self.current_month = 0
         self.current_week = 0
         self.current_year = 0
-        self.count = 0
 
         self.year_schedule = construct_year()
         self.month_schedule = self.year_schedule[self.current_month]
@@ -109,3 +108,4 @@ class Schedule:
 
 if __name__ == '__main__':
     x = Schedule()
+    print(x.year_schedule)
