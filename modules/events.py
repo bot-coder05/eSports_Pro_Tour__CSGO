@@ -48,21 +48,21 @@ fixed_events = [
     FixedEvent("BFS", "#3956bd", 'A', random.randint(1, 2), 0, 0, 8, 3, 1),
     FixedEvent("BFF", "#3956bd", 'A', random.randint(1, 2), 0, 0, 9, 1, 1)  # A+
 
-    # Intel Extreme Masters - IEM
-    # ESL PRO League - EPL
-    # Blast Premier: World Final - BLT
-    # Major - MJR
+    # Intel Extreme Masters - IEM        
+    # ESL PRO League - EPL              
+    # Blast Premier: World Final - BLT   
+    # Major - MJR                       
+    
+    # Intel Extreme Qualifiers - IEQ     
+    # Intel Extreme PRO - IEP           
 
-    # Intel Extreme Qualifiers - IEQ
-    # Intel Extreme PRO - IEP
+    # ESL Open Qualifier - ESQ          
+    # ESL Challenger League - ECL       
 
-    # ESL Open Qualifier - ESQ
-    # ESL Challenger League - ECL
-
-    # Blast Spring Showdown - BSS
-    # Blast Spring Finals - BSF
-    # Blast Fall Showdown -BFS
-    # Blast Fall Finals - BFF
+    # Blast Spring Showdown - BSS       
+    # Blast Spring Finals - BSF         
+    # Blast Fall Showdown -BFS          
+    # Blast Fall Finals - BFF           
 ]
 
 monthly_events = [
@@ -76,32 +76,33 @@ monthly_events = [
     Event('WAL', '#fca503', 'B', random.randint(3, 5), 0, 0),
     Event('GCL', '#fca503', 'B', random.randint(3, 5), 0, 0)
 
-    # IESF World Esports Championship 2022 - WEC
-    # Tipsport Cup 2022 - TSC
-    # Elisa Invitational - ELI
-    # CEE Championship - CEE
-    # Thunderpick Bitcoin Series - TBS
-    # Fantasyexpo Champions - FEC
-    # Funspark ULTI - FSU
-    # WePLay Academy League - WAL
-    # Gamers Club League - GCL
+    # IESF World Esports Championship 2022 - WEC    50k
+    # Tipsport Cup - TSC                            48k                      
+    # Elisa Invitational - ELI                      45k
+    # CEE Championship - CEE                        40k
+    # Thunderpick Bitcoin Series - TBS              35k
+    # Fantasyexpo Champions - FEC                   32k
+    # Funspark ULTI - FSU                           30k
+    # WePLay Academy League - WAL                   28k   
+    # Gamers Club League - GCL                      25k
 ]
 
 weekly_events = [
     Event('FPL', 'green', 'C', random.randint(1, 2), 0, 0),
     Event('FCL', 'green', 'C', random.randint(1, 2), 0, 0),
-    Event('ICC', 'green', 'C', random.randint(1, 2), 0, 0),
+    Event('AIC', 'green', 'C', random.randint(1, 2), 0, 0),
     Event('ECC', 'green', 'C', random.randint(1, 2), 0, 0),
     Event('GCR', 'green', 'C', random.randint(1, 2), 0, 0),
+    Event('RLC', 'green', 'C', random.randint(1, 2), 0, 0),
     Event('RLC', 'green', 'C', random.randint(1, 2), 0, 0)
 
-
-    # Faceit Pro League - FPL
-    # Faceit Challenger League - FCL
-    # ESL Impact Cash Cup - ICC
-    # ESEA Cash Cup - ECC
-    # Gamers Club Ranked - GCR
-    # REPUBLEAGUE Community Cup - RLC
+    # Faceit Pro League - FPL                       4k           
+    # Faceit Challenger League - FCL                1k       
+    # Advanced Impact Cup - AIC                     2k         
+    # ESEA Cash Cup - ECC                           3k              
+    # Gamers Club Ranked - GCR                      1k
+    # REPUBLEAGUE Community Cup - RLC               2k
+    # Collectors League - COL                       3k
 ]
 
 # Tournament('IEQ', '#fc9dd9', 'Q'),
