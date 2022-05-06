@@ -11,6 +11,9 @@ def get_s_event(month, week):
 
 
 def construct_week(month, week, monthly_event):
+    if month == 11 and week in [2, 3]:
+        return [0, 0, 0, 0, 0, 0, 0]
+
     s_event = get_s_event(month, week)
 
     events = random.sample(weekly_events, random.randint(1, 3))
@@ -37,11 +40,19 @@ def construct_week(month, week, monthly_event):
 
 def construct_month(m: int):
     month_events = random.sample(monthly_events, 4)
-    month = [construct_week(m, 0, month_events[0]),
-             construct_week(m, 1, month_events[1]),
-             construct_week(m, 2, month_events[2]),
-             construct_week(m, 3, month_events[3])
-             ]
+
+    if m == 11:
+        month = [construct_week(m, 0, month_events[0]),
+                 construct_week(m, 1, month_events[1]),
+                 construct_week(m, 2, month_events[2]),
+                 construct_week(m, 3, month_events[3])
+                 ]
+    else:
+        month = [construct_week(m, 0, month_events[0]),
+                 construct_week(m, 1, month_events[1]),
+                 construct_week(m, 2, month_events[2]),
+                 construct_week(m, 3, month_events[3])
+                 ]
 
     return month
 

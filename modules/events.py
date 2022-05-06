@@ -45,13 +45,18 @@ fixed_events = [
     FixedEvent("BSF", "#3956bd", 'A', random.randint(1, 2), 0, 0, 4, 1, 1),  # A+
     FixedEvent("IEQ", "#176ab0", 'A', random.randint(1, 2), 0, 0, 5, 1, 5),
     FixedEvent("IEP", "#176ab0", 'A', random.randint(1, 2), 0, 0, 5, 3, 5),  # A+
+    FixedEvent("RMQ", "#176ab0", 'A', random.randint(1, 2), 0, 7, 5, 0, 1),  # 4 Rounds To Win
+    FixedEvent("RMR", "#176ab0", 'A', random.randint(1, 2), 0, 9, 5, 3, 1),  # A+, # 9 Rounds To Win
     FixedEvent("BFS", "#3956bd", 'A', random.randint(1, 2), 0, 0, 8, 3, 1),
     FixedEvent("BFF", "#3956bd", 'A', random.randint(1, 2), 0, 0, 9, 1, 1)  # A+
 
-    # Intel Extreme Masters - IEM        
+    # Intel Extreme Masters - IEM
     # ESL PRO League - EPL              
     # Blast Premier: World Final - BLT   
-    # Major - MJR                       
+    # Major - MJR
+
+    # Regional Major Qualifiers - RMQ
+    # Regional Major Ranking - RMR
     
     # Intel Extreme Qualifiers - IEQ     
     # Intel Extreme PRO - IEP           
@@ -66,15 +71,15 @@ fixed_events = [
 ]
 
 monthly_events = [
-    Event('WEC', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Event('TCP', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Event('ELI', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Event('CEE', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Event('TBS', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Event('FEC', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Event('FSU', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Event('WAL', '#fca503', 'B', random.randint(3, 5), 0, 0),
-    Event('GCL', '#fca503', 'B', random.randint(3, 5), 0, 0)
+    Event('WEC', '#fca503', 'B', random.randint(3, 5), 0, random.randint(2, 4)),
+    Event('TCP', '#fca503', 'B', random.randint(3, 5), 0, random.randint(2, 4)),
+    Event('ELI', '#fca503', 'B', random.randint(3, 5), 0, random.randint(2, 4)),
+    Event('CEE', '#fca503', 'B', random.randint(3, 5), 0, random.randint(2, 4)),
+    Event('TBS', '#fca503', 'B', random.randint(3, 5), 0, random.randint(2, 4)),
+    Event('FEC', '#fca503', 'B', random.randint(3, 5), 0, random.randint(2, 4)),
+    Event('FSU', '#fca503', 'B', random.randint(3, 5), 0, random.randint(2, 4)),
+    Event('WAL', '#fca503', 'B', random.randint(3, 5), 0, random.randint(2, 4)),
+    Event('GCL', '#fca503', 'B', random.randint(3, 5), 0, random.randint(2, 4))
 
     # IESF World Esports Championship 2022 - WEC    50k
     # Tipsport Cup - TSC                            48k                      
@@ -88,15 +93,15 @@ monthly_events = [
 ]
 
 weekly_events = [
-    Event('FPL', 'green', 'C', random.randint(1, 2), 0, 0),
-    Event('FCL', 'green', 'C', random.randint(1, 2), 0, 0),
-    Event('AIC', 'green', 'C', random.randint(1, 2), 0, 0),
-    Event('ECC', 'green', 'C', random.randint(1, 2), 0, 0),
-    Event('GCR', 'green', 'C', random.randint(1, 2), 0, 0),
-    Event('RLC', 'green', 'C', random.randint(1, 2), 0, 0),
-    Event('RLC', 'green', 'C', random.randint(1, 2), 0, 0)
+    Event('FPL', 'green', 'C', random.randint(1, 2), 0, random.randint(1, 2)),
+    Event('FCL', 'green', 'C', random.randint(1, 2), 0, random.randint(1, 2)),
+    Event('AIC', 'green', 'C', random.randint(1, 2), 0, random.randint(1, 2)),
+    Event('ECC', 'green', 'C', random.randint(1, 2), 0, random.randint(1, 2)),
+    Event('GCR', 'green', 'C', random.randint(1, 2), 0, random.randint(1, 2)),
+    Event('RLC', 'green', 'C', random.randint(1, 2), 0, random.randint(1, 2)),
+    Event('RLC', 'green', 'C', random.randint(1, 2), 0, random.randint(1, 2))
 
-    # Faceit Pro League - FPL                       4k           
+    # Faceit Pro League - FPL                       4k
     # Faceit Challenger League - FCL                1k       
     # Advanced Impact Cup - AIC                     2k         
     # ESEA Cash Cup - ECC                           3k              
@@ -104,14 +109,6 @@ weekly_events = [
     # REPUBLEAGUE Community Cup - RLC               2k
     # Collectors League - COL                       3k
 ]
-
-# Tournament('IEQ', '#fc9dd9', 'Q'),
-# Tournament('ESQ', '#fc9dd9', 'Q'),
-# Tournament('RMQ', '#fc9dd9', 'Q'),
-
-# Tournament('EPL', 'yellow', 'S'),
-# Tournament('BLT', 'blue', 'S'),
-# Tournament('IEM', 'cyan', 'S'),
 
 if __name__ == '__main__':
     print(Event('RLC', 'green', 'C', random.randint(1, 2), 0, 0).encode())

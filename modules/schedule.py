@@ -47,12 +47,12 @@ class Schedule:
     def get_decorated_year(self):
         return attr('bold') + "YEAR " + str(self.current_year) + attr('reset')
 
-    def make_calendar(self, month):
+    def make_calendar(self, month, highlight=1):
         calendar = f"""{self.get_decorated_month(self.month_list[month])} - {self.get_decorated_year()}\n\n"""
         month_schedule = self.year_schedule[month]
 
         for index, week in enumerate(month_schedule):
-            if index == self.current_week:
+            if index == self.current_week and highlight == 1:
                 decor = 'bold'
             else:
                 decor = 'dim'
@@ -90,7 +90,7 @@ class Schedule:
         self.month_schedule = self.year_schedule[self.current_month]
 
     def view_month(self, val):
-        return self.make_calendar(val)
+        return self.make_calendar(val, highlight=0)
 
     def get_event(self, val):
         for ind, event in enumerate(self.month_schedule[self.current_week]):
@@ -99,13 +99,26 @@ class Schedule:
 
         return None
 
-    def select_event(self, val):
-        for ind, event in enumerate(self.month_schedule[self.current_week]):
+    def enter_event(self, val):
+        for day, event in enumerate(self.month_schedule[self.current_week]):
             if event != 0 and val.lower() in event.name.lower():
-                for i in range(event.length):
-                    self.month_schedule[self.current_week][ind + i + 1] = 0
+
+                current_month = self.current_month
+                current_week = self.current_week
+                current_day = day
+
+                for i in range(1, event.length + 1):
+                    if current_week == 3:
+                        current_week = 0
+                        current_month += 1
+                    elif current_day == 6:
+                        current_week += 1
+                        current_day = 0
+                    else:
+                        current_day += 1
+
+                    self.month_schedule[current_week][current_day] = 0
 
 
 if __name__ == '__main__':
-    x = Schedule()
-    print(x.year_schedule)
+    pass
